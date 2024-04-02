@@ -1,0 +1,23 @@
+version: '3'
+services:
+  ubuntu:
+    image: ubuntu:20.04
+    container_name: my-ubuntu
+  jenkins:
+    image: jenkins/jenkins
+    container_name: my-jenkins
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - my-volume:/var/jenkins_home
+    networks:
+      - my-network    
+
+volumes:
+  my-volume:
+networks:
+  my-network:
+
+#docker-compose up
+#docker-compose down
